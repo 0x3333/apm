@@ -1,0 +1,12 @@
+[submodule "lib/dapboot"]
+	path = lib/dapboot
+	url = git@github.com:devanlai/dapboot.git
+[submodule "lib/chibios"]
+	path = lib/chibios
+	url = git@github.com:0x3333/chibios_svn_mirror.git
+[submodule "lib/opus"]
+	path = lib/opus
+	url = git@github.com:0x3333/opus.git
+[submodule "lib/freertos"]
+	path = lib/freertos
+	url = git@github.com:0x3333/FreeRTOS-Kernel.git
