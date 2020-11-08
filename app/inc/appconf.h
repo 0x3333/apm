@@ -55,12 +55,12 @@
 // #define OP_IDLE_HOOK
 
 // Watchdog LED
-#define OP_WATCHDOG_LED
-#define OP_WATCHDOG_LED_DELAY /*       */ 500
+#define OP_HEARTBEAT_LED
+#define OP_HEARTBEAT_LED_DELAY /*       */ 1000
 #if OP_BOARD == OP_BOARD_BLUEPILL
-#define OP_WATCHDOG_LED_LINE /*        */ PAL_LINE(GPIOC, 13)
+#define OP_HEARTBEAT_LED_LINE /*        */ PAL_LINE(GPIOC, 13)
 #elif OP_BOARD == OP_BOARD_COREBOARD
-#define OP_WATCHDOG_LED_LINE /*        */ PAL_LINE(GPIOA, 1)
+#define OP_HEARTBEAT_LED_LINE /*        */ PAL_LINE(GPIOA, 1)
 #endif
 
 // Hardware Serial Driver
@@ -70,6 +70,11 @@
 #define OP_SERIAL_1_BAUD /*            */ 115200
 #define OP_SERIAL_1_TX_LINE /*         */ PAL_LINE(GPIOA, 9)
 #define OP_SERIAL_1_RX_LINE /*         */ PAL_LINE(GPIOA, 10)
+// Hardware Serial Port 2
+#define OP_SERIAL_2
+#define OP_SERIAL_2_BAUD /*            */ 115200
+#define OP_SERIAL_2_TX_LINE /*         */ PAL_LINE(GPIOA, 3)
+#define OP_SERIAL_2_RX_LINE /*         */ PAL_LINE(GPIOA, 2)
 
 // Software Serial Driver
 #define OP_SOFT_SERIAL
@@ -77,11 +82,27 @@
 #define OP_SOFT_SERIAL_BITRATE_MULTIPLIER 4
 // Software Serial Port 1
 #define OP_SOFT_SERIAL_1
-#define OP_SOFT_SERIAL_1_TX_LINE /*    */ PAL_LINE(GPIOA, 2)
-#define OP_SOFT_SERIAL_1_RX_LINE /*    */ PAL_LINE(GPIOA, 3)
+#define OP_SOFT_SERIAL_1_TX_LINE /*    */ PAL_LINE(GPIOB, 0)
+#define OP_SOFT_SERIAL_1_RX_LINE /*    */ PAL_LINE(GPIOB, 1)
+// Software Serial Port 2
+#define OP_SOFT_SERIAL_2
+#define OP_SOFT_SERIAL_2_TX_LINE /*    */ PAL_LINE(GPIOB, 8)
+#define OP_SOFT_SERIAL_2_RX_LINE /*    */ PAL_LINE(GPIOB, 9)
+// Software Serial Port 3
+#define OP_SOFT_SERIAL_3
+#define OP_SOFT_SERIAL_3_TX_LINE /*    */ PAL_LINE(GPIOB, 10)
+#define OP_SOFT_SERIAL_3_RX_LINE /*    */ PAL_LINE(GPIOB, 11)
+// Software Serial Port 4
+#define OP_SOFT_SERIAL_4
+#define OP_SOFT_SERIAL_4_TX_LINE /*    */ PAL_LINE(GPIOB, 12)
+#define OP_SOFT_SERIAL_4_RX_LINE /*    */ PAL_LINE(GPIOB, 13)
+// Software Serial Port 5
+#define OP_SOFT_SERIAL_5
+#define OP_SOFT_SERIAL_5_TX_LINE /*    */ PAL_LINE(GPIOB, 14)
+#define OP_SOFT_SERIAL_5_RX_LINE /*    */ PAL_LINE(GPIOB, 15)
 
 // USB Serial Port Driver
-#define OP_USB_SERIAL
+// #define OP_USB_SERIAL
 
 // Managed Flash Storage Driver
 #define OP_MFS

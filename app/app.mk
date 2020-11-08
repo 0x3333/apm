@@ -24,7 +24,8 @@ APPSRCDIR = $(APPDIR)/src
 APPINCDIR = $(APPDIR)/inc
 
 # List all C Source Files
-APPCSRC = $(APPSRCDIR)/app.c
+APPCSRC =  $(APPSRCDIR)/app.c
+APPCSRC += $(APPSRCDIR)/pzem.c
 
 # OOCD Interface and Target, overridable
 ifeq ($(OOCD_INTERFACE),)
@@ -45,12 +46,13 @@ APPDEFS += -DOP_DEBUG_DRIVER=SD1
 #
 # RTOS
 #
-OP_RTOS_FREERTOS = 1
-OP_RTOS_CHIBIOSRT = 0
+OP_RTOS_FREERTOS = 0
+OP_RTOS_CHIBIOSRT = 1
 
 #
 # Bootloader App base address
 #
+# OP_BOOTLOADER = 1
 # BL_APP_BASE_ADDRESS = 0x08004000
 # Bootloader Build Defines
 # ex.: Use button on PA8, active low
