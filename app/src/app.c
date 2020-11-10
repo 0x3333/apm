@@ -35,7 +35,10 @@
 
 #define APP_THREAD_STACK_SIZE 512
 
+// Delay between retries setting the PZEM004T device address
 #define DELAY_SET_ADDRESS 10000
+
+// Delay between reads(This is an extra time, the read by itself takes some time)
 #define DELAY_READ 5000
 
 // =================================================================================================
@@ -192,6 +195,7 @@ void appMain(void)
 {
     THD_CREATE_STATIC(Worker, WorkerWA, APP_THREAD_STACK_SIZE, "Worker", NULL, NORMAL_PRIORITY);
 
+    // This is lazy, but get the job done
     THD_CREATE_STATIC(DeviceReader, DeviceReader1WA, APP_THREAD_STACK_SIZE, "Reader1", (uint8_t*) 0, NORMAL_PRIORITY + 1);
     THD_CREATE_STATIC(DeviceReader, DeviceReader2WA, APP_THREAD_STACK_SIZE, "Reader2", (uint8_t*) 1, NORMAL_PRIORITY + 1);
     THD_CREATE_STATIC(DeviceReader, DeviceReader3WA, APP_THREAD_STACK_SIZE, "Reader3", (uint8_t*) 2, NORMAL_PRIORITY + 1);

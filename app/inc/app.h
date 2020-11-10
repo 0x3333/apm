@@ -39,6 +39,7 @@
 // Data structures / Types
 // =================================================================================================
 
+// Same structure used in MultiPZEM004TSensor from espurna
 typedef struct {
     uint8_t current[3];
     uint8_t voltage[3];
