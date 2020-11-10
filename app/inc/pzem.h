@@ -52,6 +52,8 @@ typedef struct {
 // External Declarations
 // =================================================================================================
 
+void calc_crc(uint16_t *crc, uint8_t *data, uint8_t len);
+
 bool pzem_send(SoftSerialDriver* port, uint8_t cmd, uint8_t data);
 
 bool pzem_receive(SoftSerialDriver* port, uint8_t cmd_response, uint8_t *data);

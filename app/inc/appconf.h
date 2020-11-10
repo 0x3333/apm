@@ -73,8 +73,8 @@
 // Hardware Serial Port 2
 #define OP_SERIAL_2
 #define OP_SERIAL_2_BAUD /*            */ 115200
-#define OP_SERIAL_2_TX_LINE /*         */ PAL_LINE(GPIOA, 3)
-#define OP_SERIAL_2_RX_LINE /*         */ PAL_LINE(GPIOA, 2)
+#define OP_SERIAL_2_TX_LINE /*         */ PAL_LINE(GPIOA, 2)
+#define OP_SERIAL_2_RX_LINE /*         */ PAL_LINE(GPIOA, 3)
 
 // Software Serial Driver
 #define OP_SOFT_SERIAL

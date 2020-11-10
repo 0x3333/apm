@@ -39,9 +39,10 @@ endif
 # Application Definitions
 #
 # Debug/Release Build, comment to release build
-APPDEFS += -DOP_DEBUG
-# Debug Serial Driver
-APPDEFS += -DOP_DEBUG_DRIVER=SD1
+# APPDEFS += -DOP_DEBUG
+# APPDEFS += -DOP_DEBUG_DRIVER=SD1
+APPDEFS += -DOP_LOGGER -DCHPRINTF_USE_FLOAT=TRUE
+APPDEFS += -DOP_LOGGER_DRIVER=SD1
 
 #
 # RTOS

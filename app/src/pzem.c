@@ -25,17 +25,15 @@
 // Local Functions
 // =================================================================================================
 
-static uint8_t _crc(uint8_t *data, uint8_t len)
-{
-    uint16_t crc = 0;
-    for(uint8_t i = 0; i < len; i++)
-        crc += *data++;
-    return (uint8_t)(crc & 0xFF);
-}
-
 // =================================================================================================
 // Exported Functions
 // =================================================================================================
+
+void calc_crc(uint16_t *crc, uint8_t *data, uint8_t len) {
+    for(uint8_t i = 0; i < len; i++) {
+        *crc += *data++;
+    }
+}
 
 bool pzem_send(SoftSerialDriver* port, uint8_t cmd, uint8_t data) {
     pzem_frame_t frame;
@@ -46,7 +44,10 @@ bool pzem_send(SoftSerialDriver* port, uint8_t cmd, uint8_t data) {
     frame.addr[2] = 3;
     frame.addr[3] = 4;
     frame.data = data;
-    frame.crc = _crc((uint8_t*)&frame, sizeof(frame) - 1);
+
+    uint16_t crc = 0;
+    calc_crc(&crc, (uint8_t*)&frame, sizeof(frame) - 1);
+    frame.crc = (uint8_t)(crc & 0xFF);
     
     unsigned int len = ssdWrite(port, (uint8_t*)&frame, sizeof(frame));
 
@@ -61,8 +62,9 @@ bool pzem_receive(SoftSerialDriver* port, uint8_t rsp, uint8_t *data) {
         return false;
     }
 
-    uint8_t calc_crc = _crc(buffer, sizeof(buffer)-1);
-    if(buffer[sizeof(buffer)-1] != calc_crc) {
+    uint16_t crc = 0;
+    calc_crc(&crc, buffer, sizeof(buffer)-1);
+    if(buffer[sizeof(buffer)-1] != (uint8_t)(crc & 0xFF)) {
         return false;
     }
 
